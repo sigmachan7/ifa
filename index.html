@@ -1,279 +1,689 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Indian Film Academy (IFA) | Official Institutional Production Engine</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800;900&display=swap" rel="stylesheet">
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #030305;
-            -webkit-tap-highlight-color: transparent;
-        }
-        .heading-font {
-            font-family: 'Syne', sans-serif;
-        }
-        /* Strict global barrier against side-scrolling or layout drift on mobile devices */
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-            width: 100%;
-        }
-        /* Hide scrollbars for the horizontal reels track while keeping functionality */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        /* Smooth transitions for interactive accordions */
-        .faq-transition {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        /* Specialized neon glow elements for immersive user experience */
-        .glow-overlay {
-            box-shadow: 0 0 40px rgba(225, 29, 72, 0.15);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Indian Films Academy | Become The Star</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:25px 80px;
+z-index:1000;
+background:rgba(0,0,0,0.5);
+backdrop-filter:blur(15px);
+}
+
+.logo{
+font-size:32px;
+font-weight:800;
+letter-spacing:2px;
+color:#FFD700;
+}
+
+nav ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:white;
+font-weight:500;
+transition:0.4s;
+}
+
+nav ul li a:hover{
+color:#FFD700;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,0.6),
+rgba(0,0,0,0.9)
+);
+z-index:-1;
+}
+
+.hero-content{
+max-width:900px;
+padding:20px;
+animation:fadeUp 2s ease;
+}
+
+.hero h1{
+font-size:90px;
+line-height:1.1;
+font-weight:800;
+margin-bottom:20px;
+}
+
+.hero h1 span{
+color:#FFD700;
+}
+
+.hero p{
+font-size:22px;
+line-height:1.8;
+color:#ddd;
+margin-bottom:40px;
+}
+
+.hero-buttons{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 45px;
+border-radius:50px;
+font-size:18px;
+font-weight:600;
+cursor:pointer;
+transition:0.4s;
+text-decoration:none;
+}
+
+.btn-primary{
+background:#FFD700;
+color:black;
+}
+
+.btn-primary:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 40px rgba(255,215,0,0.5);
+}
+
+.btn-secondary{
+border:2px solid white;
+color:white;
+}
+
+.btn-secondary:hover{
+background:white;
+color:black;
+}
+
+/* STATS */
+
+.stats{
+padding:120px 10%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+background:#0d0d0d;
+}
+
+.stat-box{
+text-align:center;
+padding:50px 30px;
+border-radius:20px;
+background:#111;
+transition:0.4s;
+}
+
+.stat-box:hover{
+transform:translateY(-10px);
+background:#1b1b1b;
+}
+
+.stat-box h2{
+font-size:60px;
+color:#FFD700;
+margin-bottom:10px;
+}
+
+.stat-box p{
+font-size:20px;
+color:#ccc;
+}
+
+/* COURSES */
+
+.section-title{
+text-align:center;
+font-size:60px;
+margin-bottom:70px;
+font-weight:800;
+}
+
+.section-title span{
+color:#FFD700;
+}
+
+.courses{
+padding:120px 10%;
+}
+
+.course-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.course-card{
+background:#111;
+border-radius:25px;
+overflow:hidden;
+transition:0.5s;
+position:relative;
+}
+
+.course-card:hover{
+transform:translateY(-15px);
+}
+
+.course-card img{
+width:100%;
+height:280px;
+object-fit:cover;
+}
+
+.course-content{
+padding:30px;
+}
+
+.course-content h3{
+font-size:30px;
+margin-bottom:15px;
+}
+
+.course-content p{
+color:#bbb;
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.course-btn{
+display:inline-block;
+padding:14px 35px;
+background:#FFD700;
+color:black;
+font-weight:700;
+border-radius:40px;
+text-decoration:none;
+}
+
+/* SHOWREEL */
+
+.showreel{
+padding:120px 10%;
+background:#0d0d0d;
+text-align:center;
+}
+
+.showreel video{
+width:100%;
+border-radius:30px;
+margin-top:50px;
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+padding:120px 10%;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:40px;
+}
+
+.testimonial{
+background:#111;
+padding:40px;
+border-radius:25px;
+transition:0.4s;
+}
+
+.testimonial:hover{
+transform:scale(1.03);
+}
+
+.testimonial img{
+width:90px;
+height:90px;
+border-radius:50%;
+margin-bottom:20px;
+object-fit:cover;
+}
+
+.testimonial h4{
+font-size:26px;
+margin-bottom:15px;
+}
+
+.testimonial p{
+color:#ccc;
+line-height:1.8;
+}
+
+/* CTA */
+
+.cta{
+padding:150px 10%;
+text-align:center;
+background:linear-gradient(
+135deg,
+#000,
+#1a1a1a
+);
+}
+
+.cta h2{
+font-size:70px;
+margin-bottom:25px;
+}
+
+.cta p{
+font-size:22px;
+color:#ccc;
+margin-bottom:40px;
+}
+
+/* FOOTER */
+
+footer{
+padding:80px 10%;
+background:black;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+.footer-logo{
+font-size:40px;
+font-weight:800;
+color:#FFD700;
+margin-bottom:20px;
+}
+
+.footer-col h3{
+margin-bottom:25px;
+font-size:24px;
+}
+
+.footer-col p,
+.footer-col a{
+color:#bbb;
+line-height:2;
+text-decoration:none;
+display:block;
+}
+
+.footer-col a:hover{
+color:#FFD700;
+}
+
+.bottom{
+text-align:center;
+padding:25px;
+background:#050505;
+color:#666;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(60px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+nav{
+padding:20px;
+}
+
+.hero h1{
+font-size:55px;
+}
+
+.section-title{
+font-size:42px;
+}
+
+.cta h2{
+font-size:45px;
+}
+
+}
+
+</style>
 </head>
-<body class="text-zinc-200 antialiased">
 
-    <!-- Global Layout Container ensuring perfect mobile containment -->
-    <div class="w-full max-w-md mx-auto bg-[#07070a] min-h-screen border-x border-zinc-900/50 flex flex-col relative shadow-2xl">
+<body>
 
-        <!-- ========================================== -->
-        <!-- 1. STICKY HEADER NAVIGATION -->
-        <!-- ========================================== -->
-        <header class="sticky top-0 z-50 bg-black/95 backdrop-blur-md border-b border-zinc-900/80 w-full px-4 h-16 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-tr from-rose-600 to-amber-500 rounded-lg flex items-center justify-center font-black text-sm text-white heading-font">
-                    IFA
-                </div>
-                <div class="flex flex-col">
-                    <span class="heading-font text-xs font-black tracking-wider text-white leading-none">INDIAN FILM</span>
-                    <span class="text-[8px] tracking-[0.2em] font-bold text-zinc-500 uppercase">ACADEMY</span>
-                </div>
-            </a>
-            <a href="#enrollment-terminal" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 active:scale-95 text-white font-extrabold text-[10px] uppercase tracking-wider rounded-lg transition-all shadow-md shadow-rose-600/20">
-                APPLY NOW
-            </a>
-        </header>
+<nav>
 
-        <!-- ========================================== -->
-        <!-- 2. MAIN CINEMA BANNER HEADER -->
-        <!-- ========================================== -->
-        <section class="relative w-full h-64 bg-zinc-950 overflow-hidden shrink-0">
-            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80" 
-                 alt="IFA Cinema Theater Stage" 
-                 class="w-full h-full object-cover opacity-60 scale-105 contrast-125 object-center">
-            <div class="absolute inset-0 bg-gradient-to-t from-[#07070a] via-transparent to-black/50"></div>
-            <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
-                <div class="space-y-1">
-                    <span class="text-[8px] font-black uppercase tracking-widest text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">MAIN STAGE CAMPUS</span>
-                    <h2 class="heading-font text-xl font-black text-white drop-shadow-md">Soundstage 01 Matrix</h2>
-                </div>
-                <div class="flex items-center gap-1 text-[10px] text-zinc-400 bg-black/70 backdrop-blur-md px-2 py-1 rounded border border-zinc-800 font-medium">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> LIVE FLOORS
-                </div>
-            </div>
-        </section>
+<div class="logo">IFA</div>
 
-        <!-- ========================================== -->
-        <!-- MAIN CONTENT ROUTER FOOTPRINT -->
-        <!-- ========================================== -->
-        <div class="px-4 py-8 space-y-14 flex-1">
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Courses</a></li>
+<li><a href="#">About</a></li>
+<li><a href="#">Gallery</a></li>
+<li><a href="#">Placements</a></li>
+<li><a href="#">Contact</a></li>
+</ul>
 
-            <!-- ========================================== -->
-            <!-- 3. CORE MISSION & BRAND STATEMENT -->
-            <!-- ========================================== -->
-            <section class="text-center space-y-4">
-                <div class="inline-flex items-center gap-1.5 bg-zinc-900 border border-zinc-800 rounded-full px-3 py-1 text-[9px] font-bold uppercase tracking-wider text-amber-400 mx-auto">
-                    <i data-lucide="shield-check" class="w-3 h-3"></i> Confirmed 2026 Academic Syllabus
-                </div>
-                <h1 class="heading-font text-4xl font-black tracking-tight text-white leading-[1.05]">
-                    Stop Watching Art.<br>
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-rose-500 via-amber-400 to-rose-600">
-                        Start Directing It.
-                    </span>
-                </h1>
-                <p class="text-zinc-400 text-xs leading-relaxed max-w-sm mx-auto">
-                    Welcome to India's premier industrial vocational film conservatory. Move past ancient textbook lectures and step straight onto running, high-budget multi-camera production sets from day one.
-                </p>
-                <div class="grid grid-cols-2 gap-3 pt-2">
-                    <a href="#departments" class="px-4 py-3 bg-white text-black font-extrabold text-[10px] uppercase tracking-widest rounded-xl flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-lg">
-                        The Tracks <i data-lucide="chevron-down" class="w-3 h-3"></i>
-                    </a>
-                    <a href="#curriculum" class="px-4 py-3 bg-zinc-900 border border-zinc-800 text-white font-extrabold text-[10px] uppercase tracking-widest rounded-xl flex items-center justify-center gap-1.5 active:bg-zinc-800 transition-colors">
-                        Syllabus Indexes <i data-lucide="file-text" class="w-3 h-3"></i>
-                    </a>
-                </div>
-            </section>
+</nav>
 
-            <!-- ========================================== -->
-            <!-- 4. INSTITUTIONAL METRICS & STATS -->
-            <!-- ========================================== -->
-            <section class="grid grid-cols-2 gap-3 bg-zinc-950/60 border border-zinc-900 p-4 rounded-xl text-center shadow-inner">
-                <div class="p-3 border-r border-b border-zinc-900/60">
-                    <div class="heading-font text-2xl font-black text-white">100%</div>
-                    <div class="text-[8px] font-bold uppercase tracking-wider text-zinc-500 mt-1">Floor Execution</div>
-                </div>
-                <div class="p-3 border-b border-zinc-900/60">
-                    <div class="heading-font text-2xl font-black text-rose-500">ARRI/RED</div>
-                    <div class="text-[8px] font-bold uppercase tracking-wider text-zinc-500 mt-1">Native Hardware</div>
-                </div>
-                <div class="p-3 border-r border-zinc-900/60">
-                    <div class="heading-font text-2xl font-black text-amber-400">40+</div>
-                    <div class="text-[8px] font-bold uppercase tracking-wider text-zinc-500 mt-1">Mainstream Mentors</div>
-                </div>
-                <div class="p-3">
-                    <div class="heading-font text-2xl font-black text-white">12+</div>
-                    <div class="text-[8px] font-bold uppercase tracking-wider text-zinc-500 mt-1">National Accolades</div>
-                </div>
-            </section>
+<section class="hero">
 
-            <!-- ========================================== -->
-            <!-- 5. VERIFIED REELS WITH STEP-BY-STEP CODES -->
-            <!-- ========================================== -->
-            <section id="reels-section" class="space-y-4">
-                <div class="space-y-1">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-rose-500 block">Verified Website Database</span>
-                    <h2 class="heading-font text-2xl font-black text-white">Official Platform Showreels</h2>
-                    <p class="text-zinc-500 text-[11px] leading-relaxed">The original production reels and comprehensive architectural layouts deployed from active student films on the official portal feed.</p>
-                </div>
-                
-                <!-- Horizontal Viewport -->
-                <div class="flex gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory w-full">
-                    
-                    <!-- Real Reel 1 -->
-                    <div class="w-[290px] bg-zinc-950 border border-zinc-900 rounded-2xl p-4 shrink-0 snap-start space-y-3 shadow-xl">
-                        <div class="w-full h-44 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
-                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=400&q=80" 
-                                 alt="Official Directing Sequence" class="w-full h-full object-cover filter contrast-125">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                            <div class="absolute top-2 left-2 bg-rose-600 text-white font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase">
-                                IFA PORTAL REEL 01
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">The Narrative Axis Setup</h4>
-                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
-                                This reel explicitly captures advanced multi-camera continuity blocks executed on the main soundstage. Includes spatial layout mechanics, tracking line alignment parameters, and precise technical engineering scripts for crew orchestration.
-                            </p>
-                            <div class="p-2 bg-zinc-900/60 rounded border border-zinc-800/80 text-[9px] font-mono text-zinc-500 space-y-0.5">
-                                <div><span class="text-zinc-400">Technical Spec:</span> 180-Degree Continuity Control</div>
-                                <div><span class="text-zinc-400">Application Node:</span> Feature Direction Masterclass</div>
-                            </div>
-                        </div>
-                    </div>
+<video autoplay muted loop>
+<source src="cinematic.mp4" type="video/mp4">
+</video>
 
-                    <!-- Real Reel 2 -->
-                    <div class="w-[290px] bg-zinc-950 border border-zinc-900 rounded-2xl p-4 shrink-0 snap-start space-y-3 shadow-xl">
-                        <div class="w-full h-44 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
-                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" 
-                                 alt="Method Monologue Frame" class="w-full h-full object-cover filter contrast-125">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                            <div class="absolute top-2 left-2 bg-amber-500 text-black font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase">
-                                IFA PORTAL REEL 02
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Micro-Expression Sensor Capture</h4>
-                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
-                                Complete dramatic closeup sequence breaking down psychological internal character transformations. Displays precise micro-vocal projection vectors synced with directional field microphones for cinema formats.
-                            </p>
-                            <div class="p-2 bg-zinc-900/60 rounded border border-zinc-800/80 text-[9px] font-mono text-zinc-500 space-y-0.5">
-                                <div><span class="text-zinc-400">Technical Spec:</span> High-Contrast Macro Composition</div>
-                                <div><span class="text-zinc-400">Application Node:</span> Screen Acting Masterclass</div>
-                            </div>
-                        </div>
-                    </div>
+<div class="overlay"></div>
 
-                    <!-- Real Reel 3 -->
-                    <div class="w-[290px] bg-zinc-950 border border-zinc-900 rounded-2xl p-4 shrink-0 snap-start space-y-3 shadow-xl">
-                        <div class="w-full h-44 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
-                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=400&q=80" 
-                                 alt="Sensor Exposure Array" class="w-full h-full object-cover filter contrast-125">
-                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
-                            <div class="absolute top-2 left-2 bg-rose-600 text-white font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase">
-                                IFA PORTAL REEL 03
-                            </div>
-                        </div>
-                        <div class="space-y-2">
-                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Anamorphic Low-Light Calibration</h4>
-                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
-                                Practical illumination tests focusing on raw high-end digital sensor arrays. Demonstrates high-contrast rim setups, multi-point color value balancing configurations, and complex dynamic mechanical crane movements.
-                            </p>
-                            <div class="p-2 bg-zinc-900/60 rounded border border-zinc-800/80 text-[9px] font-mono text-zinc-500 space-y-0.5">
-                                <div><span class="text-zinc-400">Technical Spec:</span> RAW Sensor Exposure Optimization</div>
-                                <div><span class="text-zinc-400">Application Node:</span> Advanced Cinematography Track</div>
-                            </div>
-                        </div>
-                    </div>
+<div class="hero-content">
 
-                </div>
-            </section>
+<h1>Become The <span>Next Star</span> Of Indian Cinema</h1>
 
-            <!-- ========================================== -->
-            <!-- 6. COMPLETE ACADEMIC CONSERVATORIES -->
-            <!-- ========================================== -->
-            <section id="departments" class="space-y-6">
-                <div class="space-y-1">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-rose-500 block">The Fields of Study</span>
-                    <h2 class="heading-font text-2xl font-black text-white">Academic Conservatories</h2>
-                    <p class="text-zinc-500 text-[11px] leading-relaxed">Explore our highly specialized, production-driven courses engineered to convert raw talent into industrial assets.</p>
-                </div>
+<p>
+Master Acting, Filmmaking, Direction, Editing, Dance,
+Music and Camera Performance with industry experts.
+Your Bollywood journey starts here.
+</p>
 
-                <div class="space-y-4">
-                    <!-- Department 1 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-rose-600/10 flex items-center justify-center text-rose-500 shrink-0"><i data-lucide="clapperboard" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Filmmaking & Feature Direction</h3>
-                                <span class="text-[9px] text-zinc-500 block font-mono">CODE: IFA-DIR-06</span>
-                            </div>
-                        </div>
-                        <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Deconstruct deep narrative scripts, master spatial actor blocking layouts, orchestrate technical crews, and take absolute command of soundstages. Students learn the full operational rules of Assistant Directors up to Executive Feature Directors, handling multi-million rupee structural sets.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 text-[10px] text-zinc-500 flex justify-between">
-                            <span>Duration: 1 Academic Year</span>
-                            <a href="#enrollment-terminal" class="text-rose-500 font-bold hover:underline">Apply Form &rarr;</a>
-                        </div>
-                    </div>
+<div class="hero-buttons">
+<a href="#" class="btn btn-primary">Apply Now</a>
+<a href="#" class="btn btn-secondary">Watch Showreel</a>
+</div>
 
-                    <!-- Department 2 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0"><i data-lucide="user" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Screen Acting Method Masterclass</h3>
-                                <span class="text-[9px] text-zinc-500 block font-mono">CODE: IFA-ACT-09</span>
-                            </div>
-                        </div>
-                        <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Intense psychological character mapping, physical presence work, voice projection metrics, and direct multi-lens positioning alignment. Learn how to calibrate raw internal emotional cues precisely for high-contrast closeups, psychological tension frames, and physical stunt configurations.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 text-[10px] text-zinc-500 flex justify-between">
-                            <span>Duration: 9 Months Intensive</span>
-                            <a href="#enrollment-terminal" class="text-amber-400 font-bold hover:underline">Apply Form &rarr;</a>
-                        </div>
-                    </div>
+</div>
 
-                    <!-- Department 3 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-rose-600/10 flex items-center justify-center text-rose-500 shrink-0"><i data-lucide="aperture" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Cinematography & Advanced Illumination</h3>
-                                <span class="text-[9px] text-zinc-500 
+</section>
+
+<section class="stats">
+
+<div class="stat-box">
+<h2>10K+</h2>
+<p>Students Trained</p>
+</div>
+
+<div class="stat-box">
+<h2>500+</h2>
+<p>Industry Projects</p>
+</div>
+
+<div class="stat-box">
+<h2>95%</h2>
+<p>Placement Support</p>
+</div>
+
+<div class="stat-box">
+<h2>50+</h2>
+<p>Industry Mentors</p>
+</div>
+
+</section>
+
+<section class="courses">
+
+<h2 class="section-title">
+Our <span>Professional Courses</span>
+</h2>
+
+<div class="course-grid">
+
+<div class="course-card">
+
+<img src="acting.jpg">
+
+<div class="course-content">
+
+<h3>Acting Masterclass</h3>
+
+<p>
+Learn camera acting, expressions, dialogue delivery,
+screen presence and audition techniques from professionals.
+</p>
+
+<a href="#" class="course-btn">Explore</a>
+
+</div>
+
+</div>
+
+<div class="course-card">
+
+<img src="direction.jpg">
+
+<div class="course-content">
+
+<h3>Film Direction</h3>
+
+<p>
+Master storytelling, screenplay visualization,
+shot breakdown and film production.
+</p>
+
+<a href="#" class="course-btn">Explore</a>
+
+</div>
+
+</div>
+
+<div class="course-card">
+
+<img src="editing.jpg">
+
+<div class="course-content">
+
+<h3>Video Editing</h3>
+
+<p>
+Learn Premiere Pro, DaVinci Resolve,
+cinematic editing and color grading.
+</p>
+
+<a href="#" class="course-btn">Explore</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="showreel">
+
+<h2 class="section-title">
+Student <span>Showreel</span>
+</h2>
+
+<video controls>
+<source src="showreel.mp4" type="video/mp4">
+</video>
+
+</section>
+
+<section class="testimonials">
+
+<h2 class="section-title">
+Success <span>Stories</span>
+</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+
+<img src="student1.jpg">
+
+<h4>Rahul Sharma</h4>
+
+<p>
+The academy completely transformed my confidence.
+Now I’m working in OTT web series projects.
+</p>
+
+</div>
+
+<div class="testimonial">
+
+<img src="student2.jpg">
+
+<h4>Ananya Kapoor</h4>
+
+<p>
+Professional mentors, real auditions and practical training.
+Best decision of my career.
+</p>
+
+</div>
+
+<div class="testimonial">
+
+<img src="student3.jpg">
+
+<h4>Aryan Mehta</h4>
+
+<p>
+The cinematic environment and film projects
+gave me real industry exposure.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="cta">
+
+<h2>Lights. Camera. Action.</h2>
+
+<p>
+Join India’s most cinematic learning experience
+and launch your entertainment career.
+</p>
+
+<a href="#" class="btn btn-primary">
+Start Your Journey
+</a>
+
+</section>
+
+<footer>
+
+<div class="footer-col">
+
+<div class="footer-logo">IFA</div>
+
+<p>
+Indian Films Academy is dedicated to creating
+future actors, filmmakers and performers.
+</p>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Quick Links</h3>
+
+<a href="#">Home</a>
+<a href="#">Courses</a>
+<a href="#">Placements</a>
+<a href="#">Gallery</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Courses</h3>
+
+<a href="#">Acting</a>
+<a href="#">Direction</a>
+<a href="#">Editing</a>
+<a href="#">Dance</a>
+
+</div>
+
+<div class="footer-col">
+
+<h3>Contact</h3>
+
+<p>Lucknow, Uttar Pradesh</p>
+<p>+91 7754000121</p>
+<p>[email protected]</p>
+
+</div>
+
+</footer>
+
+<div class="bottom">
+© 2026 Indian Films Academy. All Rights Reserved.
+</div>
+
+</body>
+</html>
