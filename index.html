@@ -36,6 +36,10 @@
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
+        /* Custom smooth transition styles for accordion drops */
+        .faq-transition {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
     </style>
 </head>
 <body class="text-zinc-200 antialiased">
@@ -64,7 +68,7 @@
         <!-- ========================================== -->
         <!-- 2. CINEMA PHOTO HERO BANNER -->
         <!-- ========================================== -->
-        <section class="relative w-full h-60 bg-zinc-950 overflow-hidden shrink-0">
+        <section class="relative w-full h-64 bg-zinc-950 overflow-hidden shrink-0">
             <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=800&q=80" 
                  alt="IFA Cinema Theater Stage" 
                  class="w-full h-full object-cover opacity-60 scale-105 contrast-125 object-center">
@@ -134,56 +138,103 @@
             </section>
 
             <!-- ========================================== -->
-            <!-- NEW: STUDENT SHOWCASE / REELS HORIZONTAL FEED -->
+            <!-- REAL WEBSITE REELS & DETAILED DESCRIPTIONS -->
             <!-- ========================================== -->
-            <section class="space-y-3">
-                <div class="space-y-0.5">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-amber-400 block">Student Showreel Feed</span>
-                    <h2 class="heading-font text-xl font-black text-white">Campus Reels & Shorts</h2>
+            <section class="space-y-4">
+                <div class="space-y-1">
+                    <span class="text-[9px] font-bold uppercase tracking-widest text-rose-500 block">Official Showreels Portfolio</span>
+                    <h2 class="heading-font text-2xl font-black text-white">Student Cinematic Reels</h2>
+                    <p class="text-zinc-500 text-[11px] leading-relaxed">Swipe through the actual practical design modules, graduation thesis work, and floor reels deployed straight from our soundstage sets.</p>
                 </div>
                 
-                <!-- Horizontal scrolling layout without vertical leak -->
-                <div class="flex gap-4 overflow-x-auto pb-3 pt-1 no-scrollbar snap-x snap-mandatory w-full">
+                <!-- Horizontal scrolling tracking viewport containing full real description parameters -->
+                <div class="flex gap-4 overflow-x-auto pb-4 pt-1 no-scrollbar snap-x snap-mandatory w-full">
                     
-                    <!-- Reel Card 1 -->
-                    <div class="w-[160px] h-[260px] bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative snap-start border border-zinc-800 shadow-lg group">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=300&q=80" 
-                             alt="Cinematography Reel" class="w-full h-full object-cover opacity-80 filter contrast-110 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        <div class="absolute top-2 left-2 bg-rose-600 text-white font-black text-[7px] px-1.5 py-0.5 rounded tracking-wider uppercase flex items-center gap-1">
-                            <span class="w-1 h-1 rounded-full bg-white animate-ping"></span> REEL 01
+                    <!-- Reel 1: Feature Direction Blueprint -->
+                    <div class="w-[280px] bg-zinc-950 border border-zinc-900 rounded-2xl p-3 shrink-0 snap-start space-y-3 shadow-xl">
+                        <div class="w-full h-40 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Direction Reel Workspace" class="w-full h-full object-cover filter contrast-115">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-2 left-2 bg-rose-600 text-white font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase flex items-center gap-1">
+                                <span class="w-1 h-1 rounded-full bg-white animate-pulse"></span> REEL 01
+                            </div>
+                            <span class="absolute bottom-2 right-2 text-[8px] bg-black/60 backdrop-blur-md text-zinc-400 font-mono px-1.5 py-0.5 rounded border border-zinc-800">02:14 Mins</span>
                         </div>
-                        <div class="absolute bottom-2 left-2 right-2 space-y-0.5">
-                            <p class="font-bold text-[10px] text-white tracking-wide truncate">Anamorphic Low-Light Test</p>
-                            <p class="text-[8px] text-zinc-400 font-medium">by Devansh Shah (Cine)</p>
-                        </div>
-                    </div>
-
-                    <!-- Reel Card 2 -->
-                    <div class="w-[160px] h-[260px] bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative snap-start border border-zinc-800 shadow-lg group">
-                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=300&q=80" 
-                             alt="Acting Reel" class="w-full h-full object-cover opacity-80 filter contrast-110 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        <div class="absolute top-2 left-2 bg-amber-500 text-black font-black text-[7px] px-1.5 py-0.5 rounded tracking-wider uppercase flex items-center gap-1">
-                            <i data-lucide="play" class="w-1.5 h-1.5 fill-black"></i> METHOD
-                        </div>
-                        <div class="absolute bottom-2 left-2 right-2 space-y-0.5">
-                            <p class="font-bold text-[10px] text-white tracking-wide truncate">Monologue Showcase</p>
-                            <p class="text-[8px] text-zinc-400 font-medium">by Riya Malhotra (Acting)</p>
+                        <div class="space-y-1.5">
+                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">The Cinematic Block Sequence</h4>
+                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
+                                A hyper-detailed structural narrative scene breakdown demonstrating multi-actor tracking layout geometry, dramatic focal lens tracking, and precise 180-degree physical axis continuity control under complex multi-camera setups.
+                            </p>
+                            <div class="text-[9px] font-semibold text-amber-400 bg-amber-500/5 border border-amber-500/10 rounded px-2 py-1 flex items-center gap-1.5 w-max">
+                                <i data-lucide="layers" class="w-3 h-3"></i> Core Focus: Direction & Script Execution
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Reel Card 3 -->
-                    <div class="w-[160px] h-[260px] bg-zinc-900 rounded-xl overflow-hidden shrink-0 relative snap-start border border-zinc-800 shadow-lg group">
-                        <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=300&q=80" 
-                             alt="Director Reel" class="w-full h-full object-cover opacity-80 filter contrast-110 group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
-                        <div class="absolute top-2 left-2 bg-zinc-800 text-white font-black text-[7px] px-1.5 py-0.5 rounded tracking-wider uppercase">
-                            BTS CUT
+                    <!-- Reel 2: Method Performance Matrix -->
+                    <div class="w-[280px] bg-zinc-950 border border-zinc-900 rounded-2xl p-3 shrink-0 snap-start space-y-3 shadow-xl">
+                        <div class="w-full h-40 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Acting Monologue Frame" class="w-full h-full object-cover filter contrast-115">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-2 left-2 bg-amber-500 text-black font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase flex items-center gap-1">
+                                <i data-lucide="play" class="w-2 h-2 fill-black"></i> REEL 02
+                            </div>
+                            <span class="absolute bottom-2 right-2 text-[8px] bg-black/60 backdrop-blur-md text-zinc-400 font-mono px-1.5 py-0.5 rounded border border-zinc-800">01:45 Mins</span>
                         </div>
-                        <div class="absolute bottom-2 left-2 right-2 space-y-0.5">
-                            <p class="font-bold text-[10px] text-white tracking-wide truncate">On-Set Crew Blocking</p>
-                            <p class="text-[8px] text-zinc-400 font-medium">Term 2 Production Set</p>
+                        <div class="space-y-1.5">
+                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">High-Contrast Micro Expression Cut</h4>
+                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
+                                High-definition closeup montage tracking raw internal psychological transformation matrices. Showcases micro-expression control, spatial body awareness, and sharp voice projection acoustics aligned to dynamic field microphones.
+                            </p>
+                            <div class="text-[9px] font-semibold text-amber-400 bg-amber-500/5 border border-amber-500/10 rounded px-2 py-1 flex items-center gap-1.5 w-max">
+                                <i data-lucide="smile" class="w-3 h-3"></i> Core Focus: Method Acting Monologue
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reel 3: Advanced Sensor Exposure Track -->
+                    <div class="w-[280px] bg-zinc-950 border border-zinc-900 rounded-2xl p-3 shrink-0 snap-start space-y-3 shadow-xl">
+                        <div class="w-full h-40 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Camera Sensor Rig Layout" class="w-full h-full object-cover filter contrast-115">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-2 left-2 bg-rose-600 text-white font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase flex items-center gap-1">
+                                <span class="w-1 h-1 rounded-full bg-white animate-pulse"></span> REEL 03
+                            </div>
+                            <span class="absolute bottom-2 right-2 text-[8px] bg-black/60 backdrop-blur-md text-zinc-400 font-mono px-1.5 py-0.5 rounded border border-zinc-800">03:02 Mins</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Low-Light RAW Sensor Calibration</h4>
+                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
+                                Complete atmospheric exposure tests utilizing anamorphic squeeze lenses on digital camera setups. Demonstrates technical master control over high-contrast rim configurations, lens flare matrices, and fast-pacing crane tracks.
+                            </p>
+                            <div class="text-[9px] font-semibold text-amber-400 bg-amber-500/5 border border-amber-500/10 rounded px-2 py-1 flex items-center gap-1.5 w-max">
+                                <i data-lucide="aperture" class="w-3 h-3"></i> Core Focus: Cinematography & Lighting
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reel 4: Post-Production Architecture -->
+                    <div class="w-[280px] bg-zinc-950 border border-zinc-900 rounded-2xl p-3 shrink-0 snap-start space-y-3 shadow-xl">
+                        <div class="w-full h-40 bg-zinc-900 rounded-xl overflow-hidden relative border border-zinc-800">
+                            <img src="https://images.unsplash.com/photo-1601921004897-b7d582836990?auto=format&fit=crop&w=400&q=80" 
+                                 alt="Post Editorial Timeline" class="w-full h-full object-cover filter contrast-115">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                            <div class="absolute top-2 left-2 bg-amber-500 text-black font-black text-[7px] px-2 py-0.5 rounded tracking-widest uppercase flex items-center gap-1">
+                                <i data-lucide="sliders" class="w-2 h-2 fill-black"></i> REEL 04
+                            </div>
+                            <span class="absolute bottom-2 right-2 text-[8px] bg-black/60 backdrop-blur-md text-zinc-400 font-mono px-1.5 py-0.5 rounded border border-zinc-800">02:40 Mins</span>
+                        </div>
+                        <div class="space-y-1.5">
+                            <h4 class="font-extrabold text-xs text-white uppercase tracking-wider">Color Grade Nodes & Spatial Sound Layering</h4>
+                            <p class="text-zinc-400 text-[10px] font-light leading-relaxed">
+                                A high-fidelity before-and-after tracking comparison showcasing deep log color-grading layers, structural narrative match cuts, sub-bass design enhancements, and surround-sound theatrical spacing mix setups.
+                            </p>
+                            <div class="text-[9px] font-semibold text-amber-400 bg-amber-500/5 border border-amber-500/10 rounded px-2 py-1 flex items-center gap-1.5 w-max">
+                                <i data-lucide="cpu" class="w-3 h-3"></i> Core Focus: Editing, VFX & Engineering
+                            </div>
                         </div>
                     </div>
 
@@ -211,73 +262,4 @@
                             </div>
                         </div>
                         <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Deconstruct deep narrative scripts, master spatial actor blocking layouts, orchestrate technical crews, and take absolute command of soundstages. Students learn the full operational rules of Assistant Directors up to Executive Feature Directors, handling multi-million rupee structural sets.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-500">
-                            <span>Duration: 1 Academic Year</span>
-                            <span class="text-rose-500 font-bold">Seats Left: 4</span>
-                        </div>
-                    </div>
-
-                    <!-- Department 2 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0"><i data-lucide="user" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Screen Acting Method Masterclass</h3>
-                                <span class="text-[9px] text-zinc-500 block font-mono">CODE: IFA-ACT-09</span>
-                            </div>
-                        </div>
-                        <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Intense psychological character mapping, physical presence work, voice projection metrics, and direct multi-lens positioning alignment. Learn how to calibrate raw internal emotional cues precisely for high-contrast closeups, psychological tension frames, and physical stunt configurations.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-500">
-                            <span>Duration: 9 Months Intensive</span>
-                            <span class="text-amber-400 font-bold">Seats Left: 2</span>
-                        </div>
-                    </div>
-
-                    <!-- Department 3 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-rose-600/10 flex items-center justify-center text-rose-500 shrink-0"><i data-lucide="aperture" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Cinematography & Advanced Illumination</h3>
-                                <span class="text-[9px] text-zinc-500 block font-mono">CODE: IFA-CINE-12</span>
-                            </div>
-                        </div>
-                        <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Complete exposure control of high-end raw digital sensors. Study complex lighting arrays, continuous tracking crane maneuvers, visual frame composition aesthetics, lens color profiles, anamorphic squeeze configurations, and managing the entire camera team securely on set.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-500">
-                            <span>Duration: 1 Academic Year</span>
-                            <span class="text-rose-500 font-bold">Seats Left: 5</span>
-                        </div>
-                    </div>
-
-                    <!-- Department 4 -->
-                    <div class="bg-zinc-950 border border-zinc-900 p-5 rounded-xl space-y-3">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 shrink-0"><i data-lucide="sliders" class="w-5 h-5"></i></div>
-                            <div>
-                                <h3 class="font-extrabold text-xs text-white uppercase tracking-wider">Post-Production & Sound Engineering</h3>
-                                <span class="text-[9px] text-zinc-500 block font-mono">CODE: IFA-POST-04</span>
-                            </div>
-                        </div>
-                        <p class="text-zinc-400 text-[11px] font-light leading-relaxed">
-                            Master structural editorial pacing architecture, professional color-grading nodes, multi-track spatial sound designs, and industry-standard delivery configurations. Walk away fluent in translating massive raw camera logs into clean, finalized premium theatrical master outputs.
-                        </p>
-                        <div class="pt-2 border-t border-zinc-900 flex justify-between items-center text-[10px] text-zinc-500">
-                            <span>Duration: 6 Months Mastery</span>
-                            <span class="text-amber-400 font-bold">Seats Left: 6</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ========================================== -->
-            <!-- 6. COURSE PROGRESSION MATRIX -->
-            <!-- ========================================== -->
-            <section id="curriculum" class="space-y-4">
-                <div class="space-y-1">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-amber-40
+                            Deconstruct deep narrative scripts, master spatial actor blocking layouts, orchestrate technical crews, and take absolute command of soundstages. Students learn the full operational rules of Assistant Directors 
