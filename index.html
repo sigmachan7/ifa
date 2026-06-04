@@ -3,30 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Film Academy | Crafting the Future of Cinema</title>
+    <title>Indian Film Academy | Premier Cinematic Conservatory</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- Lucide Icons Script -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a0a0c;
+            background-color: #060608;
         }
         .heading-font {
             font-family: 'Syne', sans-serif;
         }
-        .glow-effect:hover {
-            box-shadow: 0 0 30px rgba(220, 38, 38, 0.3);
+        .gradient-border {
+            position: relative;
+        }
+        .gradient-border::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            padding: 1px;
+            background: linear-gradient(to bottom right, rgba(220,38,38,0.4), transparent, rgba(245,158,11,0.2));
+            -webkit-mask: linear-gradient(#fff #fff) content-box, linear-gradient(#fff #fff);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
         /* Custom Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #0a0a0c;
+            background: #060608;
         }
         ::-webkit-scrollbar-thumb {
             background: #27272a;
@@ -39,261 +54,237 @@
 </head>
 <body class="text-gray-100 overflow-x-hidden">
 
-    <header class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-zinc-800/50 transition-all duration-300">
+    <!-- Global Application Modal Container (Handles all button clicks dynamically) -->
+    <div id="globalModal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/80 backdrop-blur-md transition-opacity duration-300 opacity-0">
+        <div class="bg-zinc-950 border border-zinc-800 w-full max-w-2xl rounded-2xl overflow-hidden shadow-2xl transform scale-95 transition-transform duration-300 max-h-[90vh] flex flex-col">
+            <!-- Modal Header -->
+            <div class="p-6 border-b border-zinc-900 flex items-center justify-between bg-zinc-900/20">
+                <div class="flex items-center gap-3">
+                    <div class="w-8 h-8 rounded-lg bg-red-600/10 flex items-center justify-center text-red-500">
+                        <i data-lucide="layers" id="modalIcon" class="w-4 h-4"></i>
+                    </div>
+                    <h3 id="modalTitle" class="heading-font text-lg font-bold text-white">Program Syllabus & Overview</h3>
+                </div>
+                <button onclick="closeModal()" class="w-8 h-8 rounded-full bg-zinc-900 hover:bg-zinc-800 flex items-center justify-center text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="x" class="w-4 h-4"></i>
+                </button>
+            </div>
+            <!-- Modal Content (Scrollable) -->
+            <div id="modalBody" class="p-6 overflow-y-auto space-y-4 text-zinc-400 text-sm leading-relaxed">
+                <!-- Injected dynamically via JavaScript -->
+            </div>
+            <!-- Modal Footer -->
+            <div class="p-6 border-t border-zinc-900 bg-zinc-950 flex items-center justify-end gap-3">
+                <button onclick="closeModal()" class="px-4 py-2 text-xs font-medium text-zinc-400 hover:text-white transition-colors">Close window</button>
+                <a href="#admissions" onclick="closeModal()" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold rounded-xl transition-colors">Secure Seat Now</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-black/70 backdrop-blur-md border-b border-zinc-900 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="flex items-center gap-2 group">
-                <div class="w-10 h-10 bg-gradient-to-tr from-red-600 to-amber-500 rounded-lg flex items-center justify-center font-bold text-xl text-white tracking-tighter heading-font shadow-lg group-hover:scale-105 transition-transform">
+            <a href="#" class="flex items-center gap-2.5 group">
+                <div class="w-10 h-10 bg-gradient-to-tr from-red-600 to-amber-500 rounded-xl flex items-center justify-center font-bold text-xl text-white tracking-tighter heading-font shadow-lg shadow-red-600/10 group-hover:scale-105 transition-transform">
                     IFA
                 </div>
-                <span class="heading-font text-lg font-bold tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-white to-zinc-400 hidden sm:block">
-                    INDIAN FILM ACADEMY
-                </span>
+                <div class="flex flex-col">
+                    <span class="heading-font text-base font-extrabold tracking-wider text-white leading-none">INDIAN FILM</span>
+                    <span class="text-[10px] tracking-[0.3em] font-medium text-zinc-500 uppercase">Academy</span>
+                </div>
             </a>
 
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-zinc-400">
-                <a href="#about" class="hover:text-white transition-colors">The Academy</a>
-                <a href="#courses" class="hover:text-white transition-colors">Masterclasses</a>
-                <a href="#studios" class="hover:text-white transition-colors">Campus & Tech</a>
-                <a href="#admissions" class="hover:text-white transition-colors">Admissions</a>
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-semibold uppercase tracking-widest text-zinc-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#courses" class="hover:text-white transition-colors">All Departments</a>
+                <a href="#studios" class="hover:text-white transition-colors">Infrastructure</a>
+                <a href="#faq" class="hover:text-white transition-colors">FAQ</a>
             </nav>
 
             <div class="flex items-center gap-4">
-                <a href="#admissions" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-medium text-sm rounded-full tracking-wide transition-all duration-300 transform active:scale-95 shadow-lg shadow-red-600/20">
+                <button onclick="openCustomModal('Academy Brochure Download', 'brochure')" class="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-zinc-400 hover:text-white transition-colors">
+                    <i data-lucide="download" class="w-4 h-4"></i> Brochure
+                </button>
+                <a href="#admissions" class="px-5 py-2.5 bg-red-600 hover:bg-red-700 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all shadow-lg shadow-red-600/15">
                     Apply Now
                 </a>
             </div>
         </div>
     </header>
 
+    <!-- Hero Showcase Viewport -->
     <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-t from(#0a0a0c) via-black/40 to-transparent z-10"></div>
-            <div class="absolute inset-0 bg-gradient-to-r from(#0a0a0c) via-transparent to(#0a0a0c) z-10"></div>
-            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/10 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
-            <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
-            <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1920" alt="Cinematic Studio Background" class="w-full h-full object-cover opacity-30 object-center">
+            <div class="absolute inset-0 bg-gradient-to-t from(#060608) via-black/30 to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from(#060608) via-transparent to(#060608) z-10"></div>
+            <div class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-[160px] pointer-events-none"></div>
+            <img src="https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&q=80&w=1920" alt="Cinematic Stage" class="w-full h-full object-cover opacity-20 object-center">
         </div>
 
-        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mt-12">
-            <div class="inline-flex items-center gap-2 bg-zinc-900/80 border border-zinc-800 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-amber-400 mb-6 backdrop-blur-sm">
-                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-400"></i> Admissions Open for 2026 Batch
+        <div class="relative z-20 max-w-5xl mx-auto px-6 text-center mt-8">
+            <div class="inline-flex items-center gap-2 bg-zinc-900/50 border border-zinc-800 rounded-full px-4 py-1.5 text-[11px] font-bold uppercase tracking-widest text-amber-400 mb-6 backdrop-blur-md">
+                <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> India's #1 Media & Entertainment Institute
             </div>
             
-            <h1 class="heading-font text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
-                Stop Watching Movies.<br>
+            <h1 class="heading-font text-4xl sm:text-6xl md:text-8xl font-black tracking-tight text-white mb-6 leading-none">
+                CRAFTING NEXT-GEN<br>
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-amber-400 to-red-600">
-                    Start Directing Them.
+                    VISUAL STORYTELLERS.
                 </span>
             </h1>
 
-            <p class="max-w-2xl mx-auto text-zinc-400 text-base sm:text-xl font-light leading-relaxed mb-10">
-                India’s premier conservatory for next-generation filmmakers, actors, and visual storytellers. Learn directly on set from award-winning industry masters.
+            <p class="max-w-2xl mx-auto text-zinc-400 text-sm sm:text-lg font-light leading-relaxed mb-10">
+                From core technical handling to creative worldbuilding. Get comprehensive, full-spectrum training inside real studio floors under active Industry Pioneers.
             </p>
 
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-semibold rounded-xl flex items-center justify-center gap-3 shadow-2xl transition-all duration-300 hover:bg-zinc-200 transform hover:-translate-y-0.5">
-                    Explore Masterclasses <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                <a href="#courses" class="w-full sm:w-auto px-8 py-4 bg-white text-black font-bold text-xs uppercase tracking-widest rounded-xl flex items-center justify-center gap-3 shadow-2xl transition-all hover:bg-zinc-200 transform hover:-translate-y-0.5">
+                    Explore Departments <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </a>
-                <a href="#showreel" class="w-full sm:w-auto px-8 py-4 bg-zinc-900/80 border border-zinc-800 text-white font-medium rounded-xl flex items-center justify-center gap-3 backdrop-blur-sm hover:bg-zinc-800/80 transition-all duration-300">
-                    <i data-lucide="play" class="w-5 h-5 fill-white text-white"></i> Watch Academy Reel
-                </a>
-            </div>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20 flex flex-col items-center gap-2 text-zinc-500 animate-bounce">
-            <span class="text-xs uppercase tracking-widest font-medium">Scroll to explore</span>
-            <i data-lucide="chevron-down" class="w-4 h-4"></i>
-        </div>
-    </section>
-
-    <section class="border-y border-zinc-900 bg-zinc-950/50 backdrop-blur-sm relative z-20">
-        <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-                <div class="heading-font text-3xl md:text-4xl font-bold text-white mb-1">120+</div>
-                <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">Films Released</div>
-            </div>
-            <div>
-                <div class="heading-font text-3xl md:text-4xl font-bold text-red-500 mb-1">15+</div>
-                <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">National Awards</div>
-            </div>
-            <div>
-                <div class="heading-font text-3xl md:text-4xl font-bold text-white mb-1">4K Ready</div>
-                <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">Production Labs</div>
-            </div>
-            <div>
-                <div class="heading-font text-3xl md:text-4xl font-bold text-amber-400 mb-1">100%</div>
-                <div class="text-xs uppercase tracking-wider text-zinc-500 font-semibold">Industry Mentorship</div>
+                <button onclick="openCustomModal('Academy Showreel Player', 'showreel')" class="w-full sm:w-auto px-8 py-4 bg-zinc-900/60 border border-zinc-800 text-white font-bold text-xs uppercase tracking-widest rounded-xl flex items-center justify-center gap-3 backdrop-blur-sm hover:bg-zinc-800/80 transition-all">
+                    <i data-lucide="play" class="w-4 h-4 fill-white text-white"></i> Play Showreel
+                </button>
             </div>
         </div>
     </section>
 
-    <section id="courses" class="py-24 max-w-7xl mx-auto px-6 relative z-20">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-            <div>
-                <span class="text-xs font-bold uppercase tracking-widest text-red-500 block mb-3">Our Disciplines</span>
-                <h2 class="heading-font text-3xl sm:text-5xl font-bold text-white">
-                    Professional Specializations
+    <!-- Detailed About Academy Overview -->
+    <section id="about" class="py-24 max-w-7xl mx-auto px-6 relative z-20 border-t border-zinc-900">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-500 block">The Conservatory Advantage</span>
+                <h2 class="heading-font text-3xl sm:text-5xl font-bold text-white leading-tight">
+                    Where Creative Passion Meets Real Industry Execution.
                 </h2>
-            </div>
-            <p class="max-w-md text-zinc-400 text-sm sm:text-base font-light">
-                Comprehensive, highly immersive hands-on certificate and diploma programs tailored to help you transition straight into premium Bollywood & OTT sets.
-            </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="group bg-zinc-900/40 border border-zinc-800/80 rounded-2xl overflow-hidden transition-all duration-300 hover:border-zinc-700 hover:-translate-y-1 glow-effect">
-                <div class="h-56 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&q=80&w=800" alt="Filmmaking Course" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs text-amber-400 font-medium tracking-wide">
-                        Diploma
+                <p class="text-zinc-400 text-sm sm:text-base font-light leading-relaxed">
+                    The Indian Film Academy was founded to clean up outdated theoretical media education. We operate exactly like a modern cinematic production company. Our curriculum updates with changing OTT patterns, 4K digital pipelines, high-concept screenwriting paradigms, and algorithmic content discovery frameworks.
+                </p>
+                <div class="pt-4 grid grid-cols-2 gap-6">
+                    <div class="p-4 bg-zinc-900/30 border border-zinc-900 rounded-xl">
+                        <div class="text-white font-bold text-sm mb-1">Practical Learning</div>
+                        <p class="text-xs text-zinc-500">No boring heavy textbooks. 90% of your time is spent holding cameras, rigging lights, or in performance loops.</p>
+                    </div>
+                    <div class="p-4 bg-zinc-900/30 border border-zinc-900 rounded-xl">
+                        <div class="text-white font-bold text-sm mb-1">Network Access</div>
+                        <p class="text-xs text-zinc-500">Graduate directly into industry pipelines with active placement assists and audition showcases.</p>
                     </div>
                 </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-zinc-500 text-xs font-medium uppercase tracking-wider mb-3">
-                        <i data-lucide="clapperboard" class="w-4 h-4 text-red-500"></i> Direction & Screenwriting
-                    </div>
-                    <h3 class="heading-font text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Filmmaking Masterclass</h3>
-                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                        Master visual grammar, script structures, narrative execution, and blocking camera shots alongside active directors.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-800 text-xs text-zinc-500">
-                        <span>Duration: 1 Year</span>
-                        <span class="text-white group-hover:underline flex items-center gap-1 font-medium">Syllabus <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>
-                    </div>
+                <div class="pt-2">
+                    <button onclick="openCustomModal('Full Academy Institutional Profile', 'about-more')" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-red-500 hover:text-red-400 transition-colors">
+                        Read Our Full Legacy Document <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                    </button>
                 </div>
             </div>
-
-            <div class="group bg-zinc-900/40 border border-zinc-800/80 rounded-2xl overflow-hidden transition-all duration-300 hover:border-zinc-700 hover:-translate-y-1 glow-effect">
-                <div class="h-56 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800" alt="Acting Course" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs text-amber-400 font-medium tracking-wide">
-                        6 Months
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-zinc-500 text-xs font-medium uppercase tracking-wider mb-3">
-                        <i data-lucide="user" class="w-4 h-4 text-red-500"></i> Theater & Screen
-                    </div>
-                    <h3 class="heading-font text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Advanced Acting Conservatory</h3>
-                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                        An elite module tackling Stanislavski's method, body movement, vocal modulation, and high-pressure screen audition dynamics.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-800 text-xs text-zinc-500">
-                        <span>Duration: 6 Months</span>
-                        <span class="text-white group-hover:underline flex items-center gap-1 font-medium">Syllabus <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="group bg-zinc-900/40 border border-zinc-800/80 rounded-2xl overflow-hidden transition-all duration-300 hover:border-zinc-700 hover:-translate-y-1 glow-effect">
-                <div class="h-56 relative overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1601506521937-0121a7fc2a6b?auto=format&fit=crop&q=80&w=800" alt="Cinematography & Editing Course" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
-                    <div class="absolute top-4 right-4 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full text-xs text-amber-400 font-medium tracking-wide">
-                        Certification
-                    </div>
-                </div>
-                <div class="p-6">
-                    <div class="flex items-center gap-3 text-zinc-500 text-xs font-medium uppercase tracking-wider mb-3">
-                        <i data-lucide="aperture" class="w-4 h-4 text-red-500"></i> Post & Camera Labs
-                    </div>
-                    <h3 class="heading-font text-xl font-bold text-white mb-2 group-hover:text-red-500 transition-colors">Cinematography & Post Labs</h3>
-                    <p class="text-zinc-400 text-sm font-light leading-relaxed mb-6">
-                        Get your hands dirty working with high-end digital cinema sensors (ARRI/RED), advanced studio lighting systems, and DaVinci grading.
-                    </p>
-                    <div class="flex items-center justify-between pt-4 border-t border-zinc-800 text-xs text-zinc-500">
-                        <span>Duration: 1 Year</span>
-                        <span class="text-white group-hover:underline flex items-center gap-1 font-medium">Syllabus <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i></span>
-                    </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-zinc-800 group h-[450px]">
+                <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=1000" alt="Behind the scenes shoot" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent flex flex-col justify-end p-8">
+                    <div class="text-xs text-amber-400 uppercase tracking-widest font-bold mb-2">Live Production Set</div>
+                    <h3 class="heading-font text-xl font-bold text-white">Students running an active soundstage multi-cam layout.</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="studios" class="bg-zinc-950 py-24 relative overflow-hidden">
+    <!-- Dynamic Comprehensive Department Interactive Dashboard -->
+    <section id="courses" class="py-24 bg-zinc-950/40 border-y border-zinc-900 relative z-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-5">
-                    <span class="text-xs font-bold uppercase tracking-widest text-red-500 block mb-3">Hollywood-Grade Campus</span>
-                    <h2 class="heading-font text-3xl sm:text-5xl font-bold text-white mb-6 leading-tight">
-                        Built for Creators. Powered by Technology.
-                    </h2>
-                    <p class="text-zinc-400 font-light leading-relaxed mb-8">
-                        Our state-of-the-art labs and studios break the gap between classroom philosophy and active media pipelines. Our spaces replicate premium real-world broadcasting and cinematic workflows.
-                    </p>
-                    
-                    <ul class="space-y-4">
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-red-600/10 flex items-center justify-center text-red-500 mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white text-sm">Dolby Atmos Ambient Mix Theater</h4>
-                                <p class="text-xs text-zinc-400">Industry-graded 5.1 & Dolby immersive pipeline integration for premium audio output.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-red-600/10 flex items-center justify-center text-red-500 mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white text-sm">4K Ready Green Screen Soundstage</h4>
-                                <p class="text-xs text-zinc-400">High ceiling tracking rigs for complex camera choreography and seamless VFX plates.</p>
-                            </div>
-                        </li>
-                        <li class="flex items-start gap-3">
-                            <div class="w-5 h-5 rounded-full bg-red-600/10 flex items-center justify-center text-red-500 mt-0.5 shrink-0">
-                                <i data-lucide="check" class="w-3.5 h-3.5"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-white text-sm">DaVinci Resolve Pro Grading Suites</h4>
-                                <p class="text-xs text-zinc-400">High color-accuracy monitors setup for extensive color treatment and mastering.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-500 block mb-3">All Strategic Portfolios</span>
+                <h2 class="heading-font text-3xl sm:text-5xl font-bold text-white mb-4">
+                    Explore Our Academic Programs
+                </h2>
+                <p class="text-zinc-400 text-sm font-light">
+                    Every singular corner of filmmaking and production design mapped comprehensively. Click the departments below to change layouts.
+                </p>
+            </div>
 
-                <div class="lg:col-span-7 grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <div class="h-64 rounded-2xl overflow-hidden shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80&w=500" alt="Studio Gear" class="w-full h-full object-cover">
-                        </div>
-                        <div class="h-44 bg-gradient-to-br from-red-600 to-amber-600 rounded-2xl p-6 flex flex-col justify-between shadow-lg">
-                            <i data-lucide="film" class="w-8 h-8 text-white/80"></i>
-                            <div>
-                                <div class="text-2xl font-bold heading-font text-white">RED & ARRI</div>
-                                <div class="text-xs text-white/70">Hands-on access from week one</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="space-y-4 pt-12">
-                        <div class="h-44 bg-zinc-900 border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
-                            <i data-lucide="users" class="w-8 h-8 text-red-500"></i>
-                            <div>
-                                <div class="text-2xl font-bold heading-font text-white">10+ Experts</div>
-                                <div class="text-xs text-zinc-400">In-house active directors & technicians</div>
-                            </div>
-                        </div>
-                        <div class="h-64 rounded-2xl overflow-hidden shadow-xl">
-                            <img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=500" alt="Acting Theatre" class="w-full h-full object-cover">
-                        </div>
-                    </div>
-                </div>
+            <!-- Tab Buttons Controller -->
+            <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <button onclick="switchTab('acting')" id="btn-acting" class="tab-btn px-6 py-3 bg-red-600 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                    Acting & Performance
+                </button>
+                <button onclick="switchTab('direction')" id="btn-direction" class="tab-btn px-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                    Direction & Writing
+                </button>
+                <button onclick="switchTab('technical')" id="btn-technical" class="tab-btn px-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                    Technical & Post-Production
+                </button>
+                <button onclick="switchTab('photography')" id="btn-photography" class="tab-btn px-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                    Photography & Design
+                </button>
+            </div>
+
+            <!-- Tab Panels Data Container -->
+            <div id="tab-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Data will be injected automatically by active Javascript loop -->
             </div>
         </div>
     </section>
 
-    <section id="admissions" class="py-24 max-w-7xl mx-auto px-6 relative z-20">
-        <div class="bg-gradient-to-r from-zinc-900 via-zinc-900 to-black border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl grid grid-cols-1 lg:grid-cols-12">
-            <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-between relative bg-zinc-950/40">
-                <div>
-                    <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block mb-3">Your Journey Starts Here</span>
-                    <h3 class="heading-font text-2xl sm:text-4xl font-bold text-white mb-4 leading-tight">
-                        Begin Your Film & Media Career Today
-                    </h3>
-                    <p class="text-zinc-400 text-sm font-light leading-relaxed">
-                        Schedule a private campus counseling session or request a full course roadmap packet. Let our experienced mentors guide your specific artistic pathway.
-                    </p>
+    <!-- Premium Equipment & Soundstage Infrastructure Blueprint -->
+    <section id="studios" class="py-24 max-w-7xl mx-auto px-6 relative z-20">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-5 space-y-6">
+                <span class="text-xs font-bold uppercase tracking-widest text-amber-400 block">Elite Gear Inventories</span>
+                <h2 class="heading-font text-3xl sm:text-5xl font-bold text-white leading-tight">
+                    Never Learn on Consumer Hardware.
+                </h2>
+                <p class="text-zinc-400 text-sm font-light leading-relaxed">
+                    We host an active operational equipment locker matching real high-budget feature setups. Our spaces are custom tuned acoustic structures modeled for complex professional output blueprints.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="p-4 bg-zinc-900/30 border border-zinc-900 rounded-xl flex items-start gap-4">
+                        <div class="p-2 rounded-lg bg-red-600/10 text-red-500 mt-1"><i data-lucide="video" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Advanced Camera Fleet</h4>
+                            <p class="text-xs text-zinc-500">ARRI Alexa Mini LF, RED V-Raptor, Sony FX9 cinema rigs complete with prime anamorphic lens configurations.</p>
+                        </div>
+                    </div>
+                    <div class="p-4 bg-zinc-900/30 border border-zinc-900 rounded-xl flex items-start gap-4">
+                        <div class="p-2 rounded-lg bg-red-600/10 text-red-500 mt-1"><i data-lucide="mic" class="w-4 h-4"></i></div>
+                        <div>
+                            <h4 class="text-white font-semibold text-sm">Acoustic Dubbing & Audio Suites</h4>
+                            <p class="text-xs text-zinc-500">Fully decoupled ADR sound booths tracking high-end Sennheiser shotgun microphones into ProTools channels.</p>
+                        </div>
+                    </div>
                 </div>
+                <div class="pt-2">
+                    <button onclick="openCustomModal('Complete Campus Inventory Blueprint', 'infrastructure')" class="w-full sm:w-auto px-6 py-3.5 bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-white font-bold text-xs uppercase tracking-widest rounded-xl transition-all">
+                        Review Full Technical Assets List
+                    </button>
+                </div>
+            </div>
 
-                <div class="mt-12 space-y-4 border-t border-zinc-800 pt-6">
-                    <div
+            <div class="lg:col-span-7 grid grid-cols-2 gap-4">
+                <div class="rounded-2xl overflow-hidden h-80 border border-zinc-800 shadow-xl"><img src="https://images.unsplash.com/photo-1461360370896-922624d12aa1?auto=format&fit=crop&q=80&w=500" alt="Tech" class="w-full h-full object-cover"></div>
+                <div class="rounded-2xl overflow-hidden h-80 border border-zinc-800 shadow-xl pt-8"><img src="https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=500" alt="Theatre" class="w-full h-full object-cover"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion Layout Section -->
+    <section id="faq" class="py-24 bg-zinc-950/40 border-t border-zinc-900 relative z-20">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-red-500 block mb-3">Answers to Common Questions</span>
+                <h2 class="heading-font text-3xl sm:text-4xl font-bold text-white">Frequently Asked Inquiries</h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-zinc-900 bg-zinc-950 rounded-xl p-6">
+                    <h4 class="text-white font-bold text-sm mb-2">What are the primary eligibility criteria?</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Applicants must have a minimum clear high school/secondary completion (10+2 standard layout). Selection cycles weigh creative orientation, critical reasoning aptitude, and personal performance profiles during custom interview stages.</p>
+                </div>
+                <div class="border border-zinc-900 bg-zinc-950 rounded-xl p-6">
+                    <h4 class="text-white font-bold text-sm mb-2">Do you provide real industrial internship support?</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Yes. Our structural production partnerships loop students into leading Indian broadcasting houses, OTT networks, and production cells during the final semesters of execution.</p>
+                </div>
+                <div class="border border-zinc-900 bg-zinc-950 rounded-xl p-6">
+                    <h4 class="text-white font-bold text-sm mb-2">Are weekend alternative tracks available for working professionals?</h4>
+                    <p class="text-xs text-zinc-400 leading-relaxed">Our comprehensive Screenwriting modules, Digital Photography classes, and specialized Film Direction bootcamps include dedicated weekend schedules to handle alternative timing requirements comfortably.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button onclick="openCustomModal('Extended Academic Policy Blueprint', 'faq-more')" class="text-xs font-bold uppercase tracking-wi
