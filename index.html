@@ -1,24 +1,16 @@
-<!--
-ULTRA CINEMATIC INDIAN FILMS ACADEMY WEBSITE
-SUPER PREMIUM EDITION
-100+ FEATURES INCLUDED
--->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>
-Indian Films Academy | Ultra Cinematic Experience
+Indian Films Academy | AI Cinematic Experience
 </title>
 
-<!-- GOOGLE FONTS -->
+<!-- GOOGLE FONT -->
 
 <link rel="preconnect"
 href="https://fonts.googleapis.com">
@@ -45,7 +37,26 @@ href="https://unpkg.com/aos@2.3.4/dist/aos.css">
 
 <style>
 
-/* RESET */
+/* =========================
+ROOT COLORS
+========================= */
+
+:root{
+
+--bg:#07110d;
+--card:#0f1d17;
+--green:#7fffd4;
+--green2:#98ff98;
+--mint:#b8ffec;
+--gold:#FFD700;
+--white:#ffffff;
+--text:#d8f3e8;
+
+}
+
+/* =========================
+RESET
+========================= */
 
 *{
 margin:0;
@@ -55,15 +66,74 @@ scroll-behavior:smooth;
 font-family:'Poppins',sans-serif;
 }
 
-/* BODY */
+/* =========================
+BODY
+========================= */
 
 body{
-background:#050505;
-color:white;
+
+background:
+linear-gradient(
+180deg,
+#06110d,
+#081712,
+#0c1f18
+);
+
+color:var(--white);
 overflow-x:hidden;
+
 }
 
-/* SCROLLBAR */
+/* =========================
+PARTICLES
+========================= */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-999;
+}
+
+/* =========================
+LIGHTS
+========================= */
+
+.light{
+position:fixed;
+border-radius:50%;
+filter:blur(120px);
+z-index:-1;
+}
+
+.light1{
+width:300px;
+height:300px;
+background:#7fffd4;
+top:10%;
+left:5%;
+}
+
+.light2{
+width:250px;
+height:250px;
+background:#98ff98;
+bottom:10%;
+right:5%;
+}
+
+.light3{
+width:200px;
+height:200px;
+background:#FFD700;
+top:50%;
+left:50%;
+}
+
+/* =========================
+SCROLLBAR
+========================= */
 
 ::-webkit-scrollbar{
 width:10px;
@@ -74,13 +144,16 @@ background:black;
 }
 
 ::-webkit-scrollbar-thumb{
-background:#FFD700;
+background:var(--green);
 border-radius:20px;
 }
 
-/* PRELOADER */
+/* =========================
+PRELOADER
+========================= */
 
 #preloader{
+
 position:fixed;
 top:0;
 left:0;
@@ -92,13 +165,16 @@ justify-content:center;
 align-items:center;
 flex-direction:column;
 z-index:99999;
+
 }
 
 #preloader h1{
-font-size:60px;
+
+font-size:65px;
 font-weight:900;
-color:#FFD700;
+color:var(--green);
 animation:pulse 2s infinite;
+
 }
 
 @keyframes pulse{
@@ -117,85 +193,108 @@ opacity:0.5;
 
 }
 
-/* PARTICLES */
-
-#particles-js{
-position:fixed;
-width:100%;
-height:100%;
-z-index:-999;
-}
-
-/* CURSOR */
+/* =========================
+CURSOR
+========================= */
 
 .cursor{
+
 position:fixed;
 width:25px;
 height:25px;
-border:2px solid #FFD700;
+border:2px solid var(--green);
 border-radius:50%;
 pointer-events:none;
 transform:translate(-50%,-50%);
 z-index:9999;
 transition:0.1s;
+
 }
 
-/* NAVBAR */
+/* =========================
+TOP BAR
+========================= */
+
+.top-bar{
+
+background:#0f1d17;
+padding:10px 10%;
+display:flex;
+justify-content:space-between;
+font-size:14px;
+
+}
+
+/* =========================
+NAVBAR
+========================= */
 
 nav{
+
 position:fixed;
-top:0;
+top:40px;
 left:0;
 width:100%;
 padding:25px 80px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-background:rgba(0,0,0,0.3);
-backdrop-filter:blur(15px);
+background:rgba(0,0,0,0.25);
+backdrop-filter:blur(18px);
 z-index:999;
 transition:0.4s;
+
 }
 
 .logo{
+
 font-size:36px;
 font-weight:900;
-color:#FFD700;
+color:var(--green);
 letter-spacing:2px;
+
 }
 
 nav ul{
+
 display:flex;
 gap:35px;
 list-style:none;
+
 }
 
 nav ul li a{
+
 text-decoration:none;
 color:white;
 font-weight:500;
 position:relative;
-transition:0.4s;
+
 }
 
 nav ul li a::after{
+
 content:'';
 position:absolute;
 left:0;
 bottom:-5px;
 width:0%;
 height:2px;
-background:#FFD700;
+background:var(--green);
 transition:0.4s;
+
 }
 
 nav ul li a:hover::after{
 width:100%;
 }
 
-/* HERO */
+/* =========================
+HERO
+========================= */
 
 .hero{
+
 height:100vh;
 position:relative;
 display:flex;
@@ -203,9 +302,11 @@ justify-content:center;
 align-items:center;
 text-align:center;
 overflow:hidden;
+
 }
 
 .hero video{
+
 position:absolute;
 width:100%;
 height:100%;
@@ -213,43 +314,69 @@ object-fit:cover;
 top:0;
 left:0;
 z-index:-3;
+
+filter:
+contrast(1.15)
+brightness(1.05)
+saturate(1.1);
+
 }
 
 .hero-overlay{
+
 position:absolute;
 width:100%;
 height:100%;
+
 background:
 linear-gradient(
 to bottom,
-rgba(0,0,0,0.4),
-rgba(0,0,0,0.9)
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.55)
 );
+
+backdrop-filter:brightness(0.9);
+
 z-index:-2;
+
 }
 
 .hero-content{
+
 max-width:1000px;
 padding:20px;
+
 }
 
 .hero h1{
-font-size:90px;
-line-height:1.1;
+
+font-size:95px;
 font-weight:900;
-margin-bottom:20px;
+line-height:1.1;
+margin-bottom:25px;
+
 }
 
 .hero h1 span{
-color:#FFD700;
+
+color:var(--green);
+text-shadow:
+0 0 20px rgba(127,255,212,0.7);
+
 }
 
 .hero p{
+
 font-size:24px;
 line-height:1.8;
-color:#ddd;
+color:#d8f3e8;
 margin-bottom:40px;
+
 }
+
+/* =========================
+BUTTONS
+========================= */
 
 .hero-buttons{
 display:flex;
@@ -258,9 +385,8 @@ gap:25px;
 flex-wrap:wrap;
 }
 
-/* BUTTONS */
-
 .btn{
+
 padding:18px 45px;
 border-radius:50px;
 font-size:18px;
@@ -268,31 +394,40 @@ font-weight:700;
 text-decoration:none;
 transition:0.4s;
 display:inline-block;
-position:relative;
-overflow:hidden;
+
 }
 
 .btn-primary{
-background:#FFD700;
+
+background:var(--green);
 color:black;
+
 }
 
 .btn-primary:hover{
+
 transform:translateY(-5px);
-box-shadow:0 10px 40px rgba(255,215,0,0.5);
+box-shadow:0 10px 40px rgba(127,255,212,0.4);
+
 }
 
 .btn-secondary{
+
 border:2px solid white;
 color:white;
+
 }
 
 .btn-secondary:hover{
+
 background:white;
 color:black;
+
 }
 
-/* SECTION */
+/* =========================
+SECTIONS
+========================= */
 
 section{
 padding:120px 10%;
@@ -300,71 +435,98 @@ position:relative;
 }
 
 .section-title{
+
 font-size:65px;
 font-weight:900;
 text-align:center;
 margin-bottom:70px;
 text-transform:uppercase;
+
 }
 
 .section-title span{
-color:#FFD700;
+
+color:var(--green);
+text-shadow:
+0 0 20px rgba(127,255,212,0.7);
+
 }
 
-/* STATS */
+/* =========================
+STATS
+========================= */
 
 .stats{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
-background:#0d0d0d;
+
 }
 
 .stat-box{
+
 padding:50px;
-background:#111;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
 border-radius:25px;
 text-align:center;
 transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
+border:1px solid rgba(255,255,255,0.08);
+
 }
 
 .stat-box:hover{
+
 transform:translateY(-10px);
-background:#1a1a1a;
+
 }
 
 .stat-box h2{
+
 font-size:60px;
-color:#FFD700;
+color:var(--green);
 margin-bottom:10px;
+
 }
 
-/* COURSES */
+/* =========================
+COURSES
+========================= */
 
 .course-grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:40px;
+
 }
 
 .course-card{
-background:#111;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
 border-radius:25px;
 overflow:hidden;
 transition:0.5s;
-position:relative;
-border:1px solid rgba(255,255,255,0.1);
+border:1px solid rgba(255,255,255,0.08);
+
 }
 
 .course-card:hover{
-transform:translateY(-15px) scale(1.03);
+
+transform:
+translateY(-15px)
+scale(1.03);
+
 }
 
 .course-card img{
+
 width:100%;
 height:260px;
 object-fit:cover;
+
 }
 
 .course-content{
@@ -372,145 +534,287 @@ padding:30px;
 }
 
 .course-content h3{
+
 font-size:30px;
 margin-bottom:15px;
+
 }
 
 .course-content p{
-color:#bbb;
+
+color:#d8f3e8;
 line-height:1.8;
 margin-bottom:25px;
+
 }
 
-/* GALLERY */
+/* =========================
+GALLERY
+========================= */
 
 .gallery-grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
 gap:25px;
+
 }
 
 .gallery-grid img{
+
 width:100%;
 height:250px;
 object-fit:cover;
 border-radius:20px;
 transition:0.5s;
+
 }
 
 .gallery-grid img:hover{
+
 transform:scale(1.05);
+
 }
 
-/* VIDEO REELS */
+/* =========================
+VIDEOS
+========================= */
 
 .video-grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
 gap:30px;
+
 }
 
 .video-grid video{
+
 width:100%;
 border-radius:20px;
+
 }
 
-/* TESTIMONIALS */
+/* =========================
+TESTIMONIALS
+========================= */
 
 .testimonial-grid{
+
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
 gap:40px;
+
 }
 
 .testimonial{
-background:#111;
+
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(12px);
 padding:40px;
 border-radius:25px;
 transition:0.4s;
+
 }
 
 .testimonial:hover{
+
 transform:translateY(-10px);
+
 }
 
 .testimonial img{
+
 width:90px;
 height:90px;
 border-radius:50%;
 object-fit:cover;
 margin-bottom:20px;
+
 }
 
-/* FAQ */
+/* =========================
+AI CHATBOT
+========================= */
+
+.chatbot{
+
+position:fixed;
+bottom:120px;
+right:30px;
+width:350px;
+background:#102019;
+border-radius:25px;
+overflow:hidden;
+z-index:9999;
+box-shadow:
+0 20px 60px rgba(0,0,0,0.5);
+
+}
+
+.chat-header{
+
+background:var(--green);
+color:black;
+padding:18px;
+font-weight:700;
+
+}
+
+.chat-body{
+
+height:300px;
+overflow-y:auto;
+padding:20px;
+
+}
+
+.bot-message,
+.user-message{
+
+padding:12px 18px;
+border-radius:18px;
+margin-bottom:15px;
+max-width:80%;
+
+}
+
+.bot-message{
+
+background:#1d3a30;
+color:white;
+
+}
+
+.user-message{
+
+background:var(--green);
+color:black;
+margin-left:auto;
+
+}
+
+.chat-input{
+
+display:flex;
+border-top:1px solid rgba(255,255,255,0.1);
+
+}
+
+.chat-input input{
+
+flex:1;
+padding:15px;
+border:none;
+background:#0d1613;
+color:white;
+
+}
+
+.chat-input button{
+
+padding:15px 20px;
+background:var(--green);
+border:none;
+font-weight:700;
+cursor:pointer;
+
+}
+
+/* =========================
+FAQ
+========================= */
 
 .faq-item{
-background:#111;
+
+background:rgba(255,255,255,0.05);
 padding:25px;
 margin-bottom:20px;
 border-radius:15px;
 cursor:pointer;
+
 }
 
-/* CONTACT */
+/* =========================
+CONTACT
+========================= */
 
 .contact-grid{
+
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:50px;
+
 }
 
 .contact-form form{
+
 display:flex;
 flex-direction:column;
 gap:20px;
+
 }
 
 .contact-form input,
 .contact-form textarea{
+
 padding:18px;
 background:#111;
 border:none;
 border-radius:15px;
 color:white;
+
 }
 
 .contact-form button{
+
 padding:18px;
 border:none;
-background:#FFD700;
+background:var(--green);
 font-weight:700;
 border-radius:50px;
 cursor:pointer;
+
 }
 
-/* FOOTER */
+/* =========================
+FOOTER
+========================= */
 
 footer{
+
 background:black;
 padding:80px 10%;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
+
 }
 
 .footer-logo{
+
 font-size:40px;
 font-weight:900;
-color:#FFD700;
+color:var(--green);
 margin-bottom:20px;
+
 }
 
 footer a{
+
 display:block;
 margin-bottom:12px;
 color:#bbb;
 text-decoration:none;
+
 }
 
-/* WHATSAPP */
+/* =========================
+WHATSAPP
+========================= */
 
 .whatsapp{
+
 position:fixed;
 bottom:30px;
 right:30px;
@@ -524,9 +828,12 @@ align-items:center;
 font-size:35px;
 z-index:9999;
 text-decoration:none;
+
 }
 
-/* MOBILE */
+/* =========================
+RESPONSIVE
+========================= */
 
 @media(max-width:768px){
 
@@ -540,6 +847,7 @@ font-size:45px;
 
 nav{
 padding:20px;
+top:0;
 }
 
 nav ul{
@@ -548,6 +856,10 @@ display:none;
 
 .contact-grid{
 grid-template-columns:1fr;
+}
+
+.top-bar{
+display:none;
 }
 
 }
@@ -562,6 +874,12 @@ grid-template-columns:1fr;
 
 <div id="particles-js"></div>
 
+<!-- LIGHTS -->
+
+<div class="light light1"></div>
+<div class="light light2"></div>
+<div class="light light3"></div>
+
 <!-- PRELOADER -->
 
 <div id="preloader">
@@ -572,11 +890,27 @@ grid-template-columns:1fr;
 
 <div class="cursor"></div>
 
+<!-- TOP BAR -->
+
+<div class="top-bar">
+
+<div>
+🎬 Professional Film Academy
+</div>
+
+<div>
+📞 +91 7754000121
+</div>
+
+</div>
+
 <!-- NAVBAR -->
 
 <nav>
 
-<div class="logo">IFA</div>
+<div class="logo">
+IFA
+</div>
 
 <ul>
 
@@ -1039,6 +1373,38 @@ class="whatsapp">
 💬
 </a>
 
+<!-- CHATBOT -->
+
+<div class="chatbot">
+
+<div class="chat-header">
+🎬 IFA AI Assistant
+</div>
+
+<div class="chat-body"
+id="chatBody">
+
+<div class="bot-message">
+Hello 👋
+How can I help you today?
+</div>
+
+</div>
+
+<div class="chat-input">
+
+<input type="text"
+id="userInput"
+placeholder="Ask anything...">
+
+<button onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
 <!-- JAVASCRIPT -->
 
 <script>
@@ -1130,12 +1496,12 @@ value:3
 },
 
 color:{
-value:"#FFD700"
+value:"#7fffd4"
 },
 
 line_linked:{
 enable:true,
-color:"#FFD700"
+color:"#7fffd4"
 },
 
 move:{
@@ -1146,8 +1512,68 @@ speed:2
 
 });
 
+/* AI CHATBOT */
+
+function sendMessage(){
+
+const input =
+document.getElementById("userInput");
+
+const chatBody =
+document.getElementById("chatBody");
+
+const userText = input.value;
+
+if(userText.trim()==="") return;
+
+chatBody.innerHTML += `
+<div class="user-message">
+${userText}
+</div>
+`;
+
+setTimeout(()=>{
+
+let reply =
+"Thanks for contacting Indian Films Academy 🎬";
+
+if(userText.toLowerCase().includes("course")){
+
+reply =
+"We provide Acting, Dance, Music, Direction and Editing courses.";
+
+}
+
+if(userText.toLowerCase().includes("fees")){
+
+reply =
+"Our team will contact you for fee details.";
+
+}
+
+if(userText.toLowerCase().includes("contact")){
+
+reply =
+"Call us at +91 7754000121";
+
+}
+
+chatBody.innerHTML += `
+<div class="bot-message">
+${reply}
+</div>
+`;
+
+chatBody.scrollTop =
+chatBody.scrollHeight;
+
+},600);
+
+input.value="";
+
+}
+
 </script>
 
 </body>
-
-</html>
+  </html>
