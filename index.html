@@ -1,30 +1,61 @@
+<!--
+ULTRA CINEMATIC INDIAN FILMS ACADEMY WEBSITE
+SUPER PREMIUM EDITION
+100+ FEATURES INCLUDED
+-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Indian Films Academy | Cinematic Experience</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<title>
+Indian Films Academy | Ultra Cinematic Experience
+</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<!-- GSAP -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
+<!-- AOS -->
+
+<link rel="stylesheet"
+href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- PARTICLES -->
+
+<script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
 <style>
+
+/* RESET */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 scroll-behavior:smooth;
+font-family:'Poppins',sans-serif;
 }
+
+/* BODY */
 
 body{
 background:#050505;
@@ -59,33 +90,53 @@ background:black;
 display:flex;
 justify-content:center;
 align-items:center;
-z-index:99999;
 flex-direction:column;
+z-index:99999;
 }
 
 #preloader h1{
 font-size:60px;
+font-weight:900;
 color:#FFD700;
 animation:pulse 2s infinite;
 }
 
 @keyframes pulse{
-0%{opacity:0.5;}
-50%{opacity:1;}
-100%{opacity:0.5;}
+
+0%{
+opacity:0.5;
+}
+
+50%{
+opacity:1;
+}
+
+100%{
+opacity:0.5;
+}
+
+}
+
+/* PARTICLES */
+
+#particles-js{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-999;
 }
 
 /* CURSOR */
 
 .cursor{
 position:fixed;
-width:20px;
-height:20px;
+width:25px;
+height:25px;
 border:2px solid #FFD700;
 border-radius:50%;
 pointer-events:none;
-z-index:9999;
 transform:translate(-50%,-50%);
+z-index:9999;
 transition:0.1s;
 }
 
@@ -101,13 +152,13 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 background:rgba(0,0,0,0.3);
-backdrop-filter:blur(20px);
+backdrop-filter:blur(15px);
 z-index:999;
 transition:0.4s;
 }
 
 .logo{
-font-size:34px;
+font-size:36px;
 font-weight:900;
 color:#FFD700;
 letter-spacing:2px;
@@ -123,8 +174,8 @@ nav ul li a{
 text-decoration:none;
 color:white;
 font-weight:500;
-transition:0.4s;
 position:relative;
+transition:0.4s;
 }
 
 nav ul li a::after{
@@ -161,19 +212,20 @@ height:100%;
 object-fit:cover;
 top:0;
 left:0;
-z-index:-2;
+z-index:-3;
 }
 
-.overlay{
+.hero-overlay{
 position:absolute;
 width:100%;
 height:100%;
-background:linear-gradient(
+background:
+linear-gradient(
 to bottom,
 rgba(0,0,0,0.4),
-rgba(0,0,0,0.95)
+rgba(0,0,0,0.9)
 );
-z-index:-1;
+z-index:-2;
 }
 
 .hero-content{
@@ -185,7 +237,7 @@ padding:20px;
 font-size:90px;
 line-height:1.1;
 font-weight:900;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .hero h1 span{
@@ -193,7 +245,7 @@ color:#FFD700;
 }
 
 .hero p{
-font-size:22px;
+font-size:24px;
 line-height:1.8;
 color:#ddd;
 margin-bottom:40px;
@@ -206,6 +258,8 @@ gap:25px;
 flex-wrap:wrap;
 }
 
+/* BUTTONS */
+
 .btn{
 padding:18px 45px;
 border-radius:50px;
@@ -214,6 +268,8 @@ font-weight:700;
 text-decoration:none;
 transition:0.4s;
 display:inline-block;
+position:relative;
+overflow:hidden;
 }
 
 .btn-primary{
@@ -240,13 +296,15 @@ color:black;
 
 section{
 padding:120px 10%;
+position:relative;
 }
 
 .section-title{
 font-size:65px;
+font-weight:900;
 text-align:center;
 margin-bottom:70px;
-font-weight:900;
+text-transform:uppercase;
 }
 
 .section-title span{
@@ -264,15 +322,16 @@ background:#0d0d0d;
 
 .stat-box{
 padding:50px;
-text-align:center;
 background:#111;
 border-radius:25px;
+text-align:center;
 transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .stat-box:hover{
 transform:translateY(-10px);
-background:#181818;
+background:#1a1a1a;
 }
 
 .stat-box h2{
@@ -295,6 +354,7 @@ border-radius:25px;
 overflow:hidden;
 transition:0.5s;
 position:relative;
+border:1px solid rgba(255,255,255,0.1);
 }
 
 .course-card:hover{
@@ -322,16 +382,6 @@ line-height:1.8;
 margin-bottom:25px;
 }
 
-.course-btn{
-padding:14px 35px;
-background:#FFD700;
-border-radius:40px;
-display:inline-block;
-text-decoration:none;
-font-weight:700;
-color:black;
-}
-
 /* GALLERY */
 
 .gallery-grid{
@@ -350,6 +400,19 @@ transition:0.5s;
 
 .gallery-grid img:hover{
 transform:scale(1.05);
+}
+
+/* VIDEO REELS */
+
+.video-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:30px;
+}
+
+.video-grid video{
+width:100%;
+border-radius:20px;
 }
 
 /* TESTIMONIALS */
@@ -379,6 +442,16 @@ object-fit:cover;
 margin-bottom:20px;
 }
 
+/* FAQ */
+
+.faq-item{
+background:#111;
+padding:25px;
+margin-bottom:20px;
+border-radius:15px;
+cursor:pointer;
+}
+
 /* CONTACT */
 
 .contact-grid{
@@ -398,16 +471,16 @@ gap:20px;
 padding:18px;
 background:#111;
 border:none;
-color:white;
 border-radius:15px;
+color:white;
 }
 
 .contact-form button{
 padding:18px;
-background:#FFD700;
 border:none;
+background:#FFD700;
 font-weight:700;
-border-radius:40px;
+border-radius:50px;
 cursor:pointer;
 }
 
@@ -449,11 +522,11 @@ display:flex;
 justify-content:center;
 align-items:center;
 font-size:35px;
-text-decoration:none;
 z-index:9999;
+text-decoration:none;
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
 @media(max-width:768px){
 
@@ -485,6 +558,10 @@ grid-template-columns:1fr;
 
 <body>
 
+<!-- PARTICLES -->
+
+<div id="particles-js"></div>
+
 <!-- PRELOADER -->
 
 <div id="preloader">
@@ -511,7 +588,11 @@ grid-template-columns:1fr;
 
 <li><a href="#gallery">Gallery</a></li>
 
+<li><a href="#videos">Videos</a></li>
+
 <li><a href="#reviews">Reviews</a></li>
+
+<li><a href="#faq">FAQ</a></li>
 
 <li><a href="#contact">Contact</a></li>
 
@@ -524,30 +605,34 @@ grid-template-columns:1fr;
 <section class="hero" id="home">
 
 <video autoplay muted loop>
-<source src="cinematic.mp4" type="video/mp4">
+<source src="assets/videos/hero.mp4"
+type="video/mp4">
 </video>
 
-<div class="overlay"></div>
+<div class="hero-overlay"></div>
 
 <div class="hero-content">
 
 <h1>
-Become The <span>Next Star</span>
+Become The
+<span>Next Superstar</span>
 Of Indian Cinema
 </h1>
 
 <p>
-Professional Acting, Direction, Editing,
-Dance, Music & Film Production Training.
+Professional Acting, Dance, Music,
+Direction, Editing & Film Production Training
 </p>
 
 <div class="hero-buttons">
 
-<a href="#contact" class="btn btn-primary">
+<a href="#contact"
+class="btn btn-primary">
 Apply Now
 </a>
 
-<a href="#gallery" class="btn btn-secondary">
+<a href="#videos"
+class="btn btn-secondary">
 Watch Showreel
 </a>
 
@@ -561,22 +646,22 @@ Watch Showreel
 
 <section class="stats">
 
-<div class="stat-box">
+<div class="stat-box" data-aos="zoom-in">
 <h2>10K+</h2>
 <p>Students Trained</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-box" data-aos="zoom-in">
 <h2>500+</h2>
-<p>Industry Projects</p>
+<p>Film Projects</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-box" data-aos="zoom-in">
 <h2>50+</h2>
-<p>Professional Mentors</p>
+<p>Industry Mentors</p>
 </div>
 
-<div class="stat-box">
+<div class="stat-box" data-aos="zoom-in">
 <h2>95%</h2>
 <p>Placement Support</p>
 </div>
@@ -591,15 +676,18 @@ Watch Showreel
 About <span>IFA</span>
 </h2>
 
-<p style="font-size:20px;line-height:2;text-align:center;color:#ccc;max-width:1000px;margin:auto;">
+<p style="
+max-width:1000px;
+margin:auto;
+text-align:center;
+font-size:20px;
+line-height:2;
+color:#ccc;
+">
 
-Indian Films Academy is one of the most
-cinematic and professional performing arts
-institutes dedicated to acting, filmmaking,
-dance, music and entertainment industry training.
-
-Students receive real-world practical exposure,
-casting opportunities and production experience.
+Indian Films Academy provides cinematic
+industry-level training for future actors,
+filmmakers, editors, dancers and performers.
 
 </p>
 
@@ -615,63 +703,65 @@ Professional <span>Courses</span>
 
 <div class="course-grid">
 
-<div class="course-card">
+<div class="course-card" data-aos="fade-up">
 
-<img src="acting.jpg">
+<img src="assets/images/acting.jpg">
 
 <div class="course-content">
 
 <h3>Acting Masterclass</h3>
 
 <p>
-Professional camera acting training
-for films, OTT and television.
+Professional acting for OTT,
+films and television.
 </p>
 
-<a href="#contact" class="course-btn">
-Enroll Now
+<a href="#contact"
+class="btn btn-primary">
+Enroll
 </a>
 
 </div>
 
 </div>
 
-<div class="course-card">
+<div class="course-card" data-aos="fade-up">
 
-<img src="direction.jpg">
+<img src="assets/images/direction.jpg">
 
 <div class="course-content">
 
 <h3>Film Direction</h3>
 
 <p>
-Master cinematic storytelling
-and professional filmmaking.
+Learn cinematic storytelling
+and production.
 </p>
 
-<a href="#contact" class="course-btn">
-Enroll Now
+<a href="#contact"
+class="btn btn-primary">
+Enroll
 </a>
 
 </div>
 
 </div>
 
-<div class="course-card">
+<div class="course-card" data-aos="fade-up">
 
-<img src="editing.jpg">
+<img src="assets/images/editing.jpg">
 
 <div class="course-content">
 
 <h3>Video Editing</h3>
 
 <p>
-Learn editing, color grading
-and cinematic post production.
+Color grading and professional editing.
 </p>
 
-<a href="#contact" class="course-btn">
-Enroll Now
+<a href="#contact"
+class="btn btn-primary">
+Enroll
 </a>
 
 </div>
@@ -692,12 +782,38 @@ Student <span>Gallery</span>
 
 <div class="gallery-grid">
 
-<img src="gallery1.jpg">
-<img src="gallery2.jpg">
-<img src="gallery3.jpg">
-<img src="gallery4.jpg">
-<img src="gallery5.jpg">
-<img src="gallery6.jpg">
+<img src="assets/images/gallery1.jpg">
+<img src="assets/images/gallery2.jpg">
+<img src="assets/images/gallery3.jpg">
+<img src="assets/images/gallery4.jpg">
+<img src="assets/images/gallery5.jpg">
+<img src="assets/images/gallery6.jpg">
+
+</div>
+
+</section>
+
+<!-- VIDEOS -->
+
+<section id="videos">
+
+<h2 class="section-title">
+Student <span>Showreels</span>
+</h2>
+
+<div class="video-grid">
+
+<video controls>
+<source src="assets/videos/reel1.mp4">
+</video>
+
+<video controls>
+<source src="assets/videos/reel2.mp4">
+</video>
+
+<video controls>
+<source src="assets/videos/reel3.mp4">
+</video>
 
 </div>
 
@@ -715,42 +831,66 @@ Success <span>Stories</span>
 
 <div class="testimonial">
 
-<img src="student1.jpg">
+<img src="assets/images/student1.jpg">
 
 <h3>Rahul Sharma</h3>
 
 <p>
-Amazing training and professional mentors.
-Now working in OTT projects.
+Amazing cinematic learning experience.
 </p>
 
 </div>
 
 <div class="testimonial">
 
-<img src="student2.jpg">
+<img src="assets/images/student2.jpg">
 
 <h3>Ananya Kapoor</h3>
 
 <p>
-Best acting institute in Lucknow.
-Professional environment and support.
+Best acting institute experience.
 </p>
 
 </div>
 
 <div class="testimonial">
 
-<img src="student3.jpg">
+<img src="assets/images/student3.jpg">
 
 <h3>Aryan Mehta</h3>
 
 <p>
-Real industry exposure and cinematic learning.
+Real industry exposure and guidance.
 </p>
 
 </div>
 
+</div>
+
+</section>
+
+<!-- FAQ -->
+
+<section id="faq">
+
+<h2 class="section-title">
+Frequently Asked
+<span>Questions</span>
+</h2>
+
+<div class="faq-item">
+<h3>Do you provide placements?</h3>
+<p>Yes, we provide casting support.</p>
+</div>
+
+<div class="faq-item">
+<h3>Are online classes available?</h3>
+<p>Yes, both online and offline training.</p>
+</div>
+
+<div class="faq-item">
+<h3>Do beginners join?</h3>
+<p>Yes, beginners are welcome.</p>
 </div>
 
 </section>
@@ -767,25 +907,28 @@ Get In <span>Touch</span>
 
 <div class="contact-info">
 
-<h3 style="margin-bottom:20px;">Contact Numbers</h3>
+<h3>Contact Numbers</h3>
 
 <p>08062757484</p>
-<p>07754000122</p>
+
 <p>07754000121</p>
+
+<p>07754000122</p>
 
 <br>
 
-<h3 style="margin-bottom:20px;">Address</h3>
+<h3>Address</h3>
 
 <p>
-C1/192 Vardan Khand,
-Sector 1 Gomti Nagar,
+C1/192 Vardan Khand
+Sector 1 Gomti Nagar
 Lucknow Uttar Pradesh
 </p>
 
 <br>
 
-<a href="tel:+917754000121" class="btn btn-primary">
+<a href="tel:+917754000121"
+class="btn btn-primary">
 Call Now
 </a>
 
@@ -802,11 +945,14 @@ WhatsApp
 
 <form>
 
-<input type="text" placeholder="Your Name">
+<input type="text"
+placeholder="Your Name">
 
-<input type="email" placeholder="Your Email">
+<input type="email"
+placeholder="Your Email">
 
-<input type="tel" placeholder="Phone Number">
+<input type="tel"
+placeholder="Phone Number">
 
 <textarea rows="6"
 placeholder="Your Message"></textarea>
@@ -834,8 +980,7 @@ IFA
 </div>
 
 <p>
-Professional cinematic education
-for future stars.
+Creating future cinematic stars.
 </p>
 
 </div>
@@ -845,11 +990,8 @@ for future stars.
 <h3>Quick Links</h3>
 
 <a href="#home">Home</a>
-
 <a href="#about">About</a>
-
 <a href="#courses">Courses</a>
-
 <a href="#gallery">Gallery</a>
 
 </div>
@@ -859,11 +1001,8 @@ for future stars.
 <h3>Courses</h3>
 
 <a href="#">Acting</a>
-
 <a href="#">Direction</a>
-
 <a href="#">Editing</a>
-
 <a href="#">Dance</a>
 
 </div>
@@ -873,10 +1012,8 @@ for future stars.
 <h3>Social</h3>
 
 <a href="#">Instagram</a>
-
-<a href="#">YouTube</a>
-
 <a href="#">Facebook</a>
+<a href="#">YouTube</a>
 
 </div>
 
@@ -884,8 +1021,15 @@ for future stars.
 
 <!-- COPYRIGHT -->
 
-<div style="padding:25px;text-align:center;background:black;color:#666;">
+<div style="
+padding:25px;
+text-align:center;
+background:black;
+color:#666;
+">
+
 © 2026 Indian Films Academy
+
 </div>
 
 <!-- WHATSAPP -->
@@ -899,6 +1043,10 @@ class="whatsapp">
 
 <script>
 
+/* AOS */
+
+AOS.init();
+
 /* PRELOADER */
 
 window.addEventListener("load",()=>{
@@ -908,13 +1056,13 @@ setTimeout(()=>{
 document.getElementById("preloader")
 .style.display="none";
 
-},1500);
+},2000);
 
 });
 
-/* CUSTOM CURSOR */
+/* CURSOR */
 
-const cursor =
+const cursor=
 document.querySelector(".cursor");
 
 document.addEventListener("mousemove",(e)=>{
@@ -924,7 +1072,7 @@ cursor.style.top=e.clientY+"px";
 
 });
 
-/* NAVBAR SCROLL */
+/* NAVBAR */
 
 window.addEventListener("scroll",()=>{
 
@@ -943,7 +1091,7 @@ nav.style.background=
 
 });
 
-/* GSAP ANIMATIONS */
+/* GSAP */
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -967,53 +1115,39 @@ duration:1,
 delay:1
 });
 
-gsap.utils.toArray(".course-card").forEach((card)=>{
+/* PARTICLES */
 
-gsap.from(card,{
-scrollTrigger:card,
-y:100,
-opacity:0,
-duration:1
-});
+particlesJS("particles-js",{
 
-});
+particles:{
 
-gsap.utils.toArray(".stat-box").forEach((box)=>{
-
-gsap.from(box,{
-scrollTrigger:box,
-scale:0,
-opacity:0,
-duration:1
-});
-
-});
-
-gsap.utils.toArray(".testimonial").forEach((item)=>{
-
-gsap.from(item,{
-scrollTrigger:item,
-x:-100,
-opacity:0,
-duration:1
-});
-
-});
-
-/* PARALLAX */
-
-gsap.to(".hero video",{
-
-scrollTrigger:{
-trigger:".hero",
-scrub:true
+number:{
+value:80
 },
 
-scale:1.2
+size:{
+value:3
+},
+
+color:{
+value:"#FFD700"
+},
+
+line_linked:{
+enable:true,
+color:"#FFD700"
+},
+
+move:{
+speed:2
+}
+
+}
 
 });
 
 </script>
 
 </body>
-  </html>
+
+</html>
